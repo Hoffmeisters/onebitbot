@@ -5,10 +5,7 @@ module FaqModule
         end
 
         def call            
-
-          return "Nada para traduzir" if @query == nil
-
-          #Aqui testei local passando os parametros direto e no heroku com com as variaveis de ambiente
+          #Para testar inserir real valor no local das env vars, já em produção criar as env vars no heroku
           translate_api_url = ENV['TRANSLATE_API_URL']
           api_key = ENV['TRANSLATE_API_KEY']
     
@@ -17,8 +14,6 @@ module FaqModule
           res = RestClient.get url
     
           value = JSON.parse(res.body)["text"][0]
-
-          (value == nil)? "Nada para traduzir" : value
         end
     end
 end

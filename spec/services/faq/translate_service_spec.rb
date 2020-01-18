@@ -9,15 +9,5 @@ describe FaqModule::TranslateService do
                 expect(response).to match("the frog")
             end
         end
-
-
-        context "Empty query" do
-            it "return nothing to translate message" do
-                @translateService = FaqModule::TranslateService.new({})
-                response = @translateService.call()
-
-                expect(response).to match("Nada para traduzir")
-            end
-        end
     end
 end
